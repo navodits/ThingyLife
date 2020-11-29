@@ -1,0 +1,7 @@
+.container-carousel {
+  width: 25vw;
+  object-fit: cover;
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 10px;
+  overflow: hidden;
+}

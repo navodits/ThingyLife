@@ -1,0 +1,31 @@
+h1 {
+  color: white;
+}
+thead tr:nth-child(1) th {
+  background: rgba(0, 0, 0);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.my-custom-scrollbar {
+  position: relative;
+  height: 400px;
+  overflow: auto;
+}
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* make scrollbar transparent */
+}
+
+.textarea {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.table-header {
+  color: rgb(207, 136, 43);
+}
+
+.table-data {
+  color: azure;
+}

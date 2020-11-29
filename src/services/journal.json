@@ -1,0 +1,9 @@
+[
+  { "id": 1, "name": "patient1", "bp": 77 },
+
+  { "id": 2, "name": "patient7", "bp": 73 },
+
+  { "id": 3, "name": "patient3", "bp": 76 },
+
+  { "id": 4, "name": "patient2", "bp": 70 }
+]
