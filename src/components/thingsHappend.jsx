@@ -12,6 +12,7 @@ import Button from "./common/button";
 import Photographs from "./photographs";
 import { getCurrentUser } from "../services/authService";
 import ImageUploader from "./ImageUploader";
+
 class ThingsHappend extends Component {
   state = {
     posts: [],

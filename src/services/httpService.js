@@ -1,7 +1,7 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
-
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
 axios.interceptors.response.use(null, (error) => {
   const expectedError =
@@ -21,10 +21,12 @@ function setJwt(jwt){
   axios.defaults.headers.common['x-auth-token'] = jwt;
 }
 
+const baseUrl = "https://thingylife-backend.herokuapp.com/"
 export default {
   get: axios.get,
   post: axios.post,
   put: axios.put,
   delete: axios.delete,
-  setJwt
+  setJwt,
+  baseUrl
 };

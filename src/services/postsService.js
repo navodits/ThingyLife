@@ -1,6 +1,6 @@
 import http from "./httpService";
 
-const apiEndpoint = "http://localhost:8000/posts/";
+const apiEndpoint = http.baseUrl + "posts/";
 
 export function getPosts(user_id) {
   return http.get(apiEndpoint, {params: {user_id}});
