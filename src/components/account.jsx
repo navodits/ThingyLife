@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Account extends Component {
   state = {};
   render() {
-    return <h1>My Account</h1>;
+    return <h1>My Account(Coming Soon)</h1>;
   }
 }
 

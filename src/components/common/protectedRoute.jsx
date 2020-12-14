@@ -1,5 +1,4 @@
 import React from "react";
-import { render } from "react-dom";
 import { Redirect, Route } from "react-router";
 import { getCurrentUser } from "../../services/authService";
 

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Image } from "react-bootstrap";
 import Button from "./common/button";
 import "./welcomePage.css";
 

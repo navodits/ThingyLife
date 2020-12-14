@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Lottie from "lottie-react";
 import { getPosts, deletePost } from "../services/postsService";
 import Pagination from "./common/pagination";
 import { paginate } from "../utils/paginate";
@@ -8,28 +9,55 @@ import { Link } from "react-router-dom";
 import SearchBox from "./common/searchBox";
 import { toast } from "react-toastify";
 import "./thingsHappend.css";
-import Button from "./common/button";
 import Photographs from "./photographs";
 import { getCurrentUser } from "../services/authService";
 import ImageUploader from "./ImageUploader";
+import { addPhoto, getPhotos } from "./../services/photosService";
+import done from "../assets/animation/8580-done.json";
 
 class ThingsHappend extends Component {
   state = {
     posts: [],
+    photos: [],
+    selectedPhoto: null,
     currentPage: 1,
     pageSize: 4,
     searchQuery: "",
     selectedFilter: "",
     sortColumn: { path: "title", order: "asc" },
+    isPhotoAdded: false,
   };
 
   async componentDidMount() {
     const user = getCurrentUser();
-    const response = await getPosts(user.email);
-    console.log(response);
-    const posts = response.data;
-    this.setState({ posts });
+    const { data: posts } = await getPosts(user.email);
+    const { data: photos } = await getPhotos(user.email);
+    this.setState({ posts, photos });
   }
+
+  handleAdd = async (e) => {
+    const user = getCurrentUser();
+    let formData = new FormData();
+    formData.append("image", this.state.selectedPhoto);
+    formData.append("user_id", user.email);
+    console.log(user.email);
+    const config = {
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    };
+    try {
+      const response = await addPhoto(formData, config);
+      this.setState({
+        isPhotoAdded: true,
+        photos: [response.data, ...this.state.photos],
+      });
+    } catch (ex) {}
+  };
+
+  handleChooseFile = (e) => {
+    this.setState({ selectedPhoto: e.target.files[0] });
+  };
 
   handleLike = (post) => {
     const posts = [...this.state.posts];
@@ -72,13 +100,14 @@ class ThingsHappend extends Component {
   };
 
   render() {
-    const { length: count } = this.state.posts;
     const {
       currentPage,
       pageSize,
       posts: allPosts,
       sortColumn,
       searchQuery,
+      isPhotoAdded,
+      photos,
     } = this.state;
 
     let filtered = allPosts;
@@ -96,23 +125,38 @@ class ThingsHappend extends Component {
 
     const posts = paginate(sorted, currentPage, pageSize);
 
-    if (count === 0) {
-      return <p>There are no posts in the database</p>;
-    }
     return (
       <div>
         <Link to="thingsHappend/new">
           <button className="btn btn-primary">Add Post</button>
         </Link>
-        <p> Showing {filtered.length} posts in the database.</p>
+
         <SearchBox
           value={this.state.searchQuery}
           onChange={this.handleSearch}
         />
         <div className="row">
-          <div className="col-md-1">
-            <ImageUploader />
-            <Photographs />
+          <div className="col-md-2">
+            <ImageUploader
+              onClick={this.handleAdd}
+              onChange={(e) => {
+                this.setState({ selectedPhoto: e.target.files[0] });
+              }}
+            />
+            {photos.length !== 0 && <Photographs photos={this.state.photos} />}
+          </div>
+          <div className="col-md-2 animation">
+            {isPhotoAdded && (
+              <Lottie
+                animationData={done}
+                style={{ width: 100, height: 100 }}
+                loop={false}
+                onComplete={() => {
+                  this.setState({ isPhotoAdded: false });
+                  window.location = "/thingsHappend";
+                }}
+              />
+            )}
           </div>
           <div className="col-md-6 container-posts">
             <PostsTable
