@@ -19,7 +19,7 @@ class Photographs extends Component {
             </Carousel.Item>
           ))}
         </Carousel>
-        <h4>Your Best Memorezzzz</h4>
+        <h4>Your Best Memories</h4>
       </div>
     );
   }

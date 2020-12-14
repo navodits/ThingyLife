@@ -41,7 +41,8 @@ class App extends Component {
             <ProtectedRoute path="/thingsHappend" component={ThingsHappend} />
             <ProtectedRoute path="/thingsToDo" component={ThingsToDo} />
             <ProtectedRoute path="/thingsYoDid" component={ThingsYoDid} />
-            <Route exact path="/" component={WelcomePage} />
+            {this.state.user == null && <Route exact path="/" component={WelcomePage} /> }
+            <Redirect from="/" to="/thingsHappend"  />
             <Route path="/not-found" component={NotFound} />
             <Redirect to="/not-found" />
           </Switch>

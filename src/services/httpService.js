@@ -20,7 +20,8 @@ function setJwt(jwt){
   axios.defaults.headers.common['x-auth-token'] = jwt;
 }
 
-const baseUrl = "http://localhost:8000/"
+// const baseUrl = "http://localhost:8000/"
+const baseUrl = "https://thingylife-backend.herokuapp.com/"
 export default {
   get: axios.get,
   post: axios.post,
