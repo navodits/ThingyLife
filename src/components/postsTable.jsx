@@ -17,7 +17,7 @@ const PostsTable = (props) => {
       ),
     },
     { path: "content", label: "Content" },
-    { path: "postDate", label: "Date Posted" },
+    { path: "datePosted", label: "Date Posted" },
     {
       key: "like",
       content: (post) => (

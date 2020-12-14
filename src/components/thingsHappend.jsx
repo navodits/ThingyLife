@@ -31,6 +31,7 @@ class ThingsHappend extends Component {
   async componentDidMount() {
     const user = getCurrentUser();
     const { data: posts } = await getPosts(user.email);
+    console.log(posts);
     const { data: photos } = await getPhotos(user.email);
     this.setState({ posts, photos });
   }
@@ -130,7 +131,6 @@ class ThingsHappend extends Component {
         <Link to="thingsHappend/new">
           <button className="btn btn-primary">Add Post</button>
         </Link>
-
         <SearchBox
           value={this.state.searchQuery}
           onChange={this.handleSearch}
