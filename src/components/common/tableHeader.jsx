@@ -27,7 +27,7 @@ class TableHeader extends Component {
           {this.props.columns.map((column) => (
             <th
               className="table-header"
-              style={column.path == "datePosted" ? { width: "15%" } : {}}
+              style={column.path === "datePosted" ? { width: "15%" } : {}}
               key={column.path || column.key}
               onClick={() => this.raiseSort(column.path)}
             >
