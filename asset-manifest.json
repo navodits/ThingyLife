@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/ThingyLife/static/css/main.bc1a0b93.chunk.css",
+    "main.js": "/ThingyLife/static/js/main.ff6d9d70.chunk.js",
+    "main.js.map": "/ThingyLife/static/js/main.ff6d9d70.chunk.js.map",
+    "runtime~main.js": "/ThingyLife/static/js/runtime~main.60e6d973.js",
+    "runtime~main.js.map": "/ThingyLife/static/js/runtime~main.60e6d973.js.map",
+    "static/css/2.8f191772.chunk.css": "/ThingyLife/static/css/2.8f191772.chunk.css",
+    "static/js/2.6f583ff0.chunk.js": "/ThingyLife/static/js/2.6f583ff0.chunk.js",
+    "static/js/2.6f583ff0.chunk.js.map": "/ThingyLife/static/js/2.6f583ff0.chunk.js.map",
+    "index.html": "/ThingyLife/index.html",
+    "precache-manifest.8ace8af360d14311e3f904f19eef5c3a.js": "/ThingyLife/precache-manifest.8ace8af360d14311e3f904f19eef5c3a.js",
+    "service-worker.js": "/ThingyLife/service-worker.js",
+    "static/css/2.8f191772.chunk.css.map": "/ThingyLife/static/css/2.8f191772.chunk.css.map",
+    "static/css/main.bc1a0b93.chunk.css.map": "/ThingyLife/static/css/main.bc1a0b93.chunk.css.map",
+    "static/media/welcomePage.css": "/ThingyLife/static/media/background.a0fe4930.jpg",
+    "static/media/font-awesome.css": "/ThingyLife/static/media/fontawesome-webfont.fee66e71.woff",
+    "static/media/App.css": "/ThingyLife/static/media/pages_background.1aa82bfb.jpg",
+    "static/media/form.css": "/ThingyLife/static/media/registration_background.d26297ff.jpg"
+  }
+}
